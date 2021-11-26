@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+          * { 
+    font-family: 'Courier New', Courier, monospace;
+}
+body {
+    padding-right: 20%;
+    padding-left: 20%;
+    font-size: 30px;
+}
+.del-btn {
+    float: right;
+}
+.del-btn:hover {
+    background-color: rgb(231, 150, 150);
+}
+input {
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 15px;
+}
+#f_error, #l_error {
+    color: red;
+    font-size: 15px;
+}
+        </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="./img/icon.png" />
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Coding School</title>
+</head>
+<body>
+    <h1>Coding School</h1>
+    <input type="text" size="30" id="f_name" placeholder="Firstname">
+    <span id="f_error"></span>
+    <p>
+        <input type="text" size="30" id="l_name" placeholder="Lastname">
+        <span id="l_error"></span>
+    </p>
+    <input type="button" onclick="add_student()" value="Add student">
+    <h3>List of students (<span class="nbr_of_students">0</span>)</h3>
+    <hr>
+    <div class="students"></div>
+    <script>
+        const all_students = [
+            {
+                f_name: "Fernando",
+                l_name: "Sucre"
+            },
+            {
+                f_name: "Linconl",
+                l_name: "Barrows"
+            },
+            {
+                f_name: "Alex",
+                l_name: "Mahonne"
+            },
+            {
+                f_name: "Sarah",
+                l_name: "Tancredi"
+            },
+            {
+                f_name: "Charles",
+                l_name: "Patoshik"
+            }
+        ];
+​
+        // Function to display all the students
+        function get_students() {
+            let students = "";
+            let nbr = 1;
+            for(let i =0; i<all_students.length; i++) {
+                students=students + "<p>" + nbr + ". " + all_students[i].f_name + " " + all_students[i].l_name + " <input type='button' class='del-btn' value='Delete' onclick='del_student(" + i + ")'></p>";
+                nbr++
+            }
+            document.querySelector(".students").innerHTML = students;
+            document.querySelector(".nbr_of_students").innerHTML = all_students.length;
+        }
+        
+        // Function to add a new student
+        function add_student() {
+            // Considere all fields are filled
+            let field_filled = true;
+            
+            // Check if they're really filled: 1st validation
+            let first_name = document.getElementById("f_name").value;
+            if(first_name == "") { // In case the firstname field is empty, display an error
+                field_filled = false;
+                document.getElementById("f_error").innerHTML = "Please provide a firstname";
+            } else {
+                document.getElementById("f_error").innerHTML = "";
+            }
+            let last_name = document.getElementById("l_name").value;
+            if(last_name == "") { // In case the lastname field is empty, display an error
+                field_filled = false;
+                document.getElementById("l_error").innerHTML = "And a lastname too";
+            } else {
+                document.getElementById("l_error").innerHTML = "";
+            }
+                    
+            // Now all the fields are filled
+            // We go check now if they're not numbers: 2nd validation
+            if(field_filled == true) {
+                // Considere they're not numbers
+                let numbers_in_field = false;
+                if(isNaN(first_name) == false) { // Number!!! So display an error
+                    numbers_in_field = true;
+                    document.getElementById("f_error").innerHTML = "Can't be a number";
+                } else {
+                    document.getElementById("l_error").innerHTML = "";
+                }
+​
+                if(isNaN(last_name) == false) { // Number again!!! Display an error
+                    numbers_in_field = true;
+                    document.getElementById("l_error").innerHTML = "Can't be a number";
+                } else {
+                    document.getElementById("l_error").innerHTML = "";
+                }
+​
+                // Things are good now
+                // Let's insert the student in the array
+                if(numbers_in_field == false) {
+                    // Clear all the error message
+                    document.getElementById("f_error").innerHTML = "";
+                    document.getElementById("l_error").innerHTML = "";
+​
+                    // Add the student in the array
+                    all_students.push({
+                        f_name: first_name,
+                        l_name: last_name,
+                    });
+                    
+                    // Clear all the fields, prompt them for new students
+                    document.getElementById("f_name").value = "";
+                    document.getElementById("l_name").value = "";
+​
+                    // Display all the students
+                    get_students();
+                }
+            }
+        }
+​
+        // Delete a student
+        function del_student(id) {
+            all_students.splice(id, 1);
+            get_students();
+        }
+            
+        // Always display all the students
+        get_students();
+    </script>
+</body>
+</html>

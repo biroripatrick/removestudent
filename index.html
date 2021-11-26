@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <title>student list</title>
 </head>
 <body>
     <div class="main">
         <h1>student list</h1>
             <ul class="student-list" id="studentslist">
-                <!-- <li class="listitem">
-                <div class="personal-info">
-                        <h2>ndayambaje Gaetan</h2>
-                        <p>gaetannda@gmail.com</p>
-                        <p>079999787678765587</p>
-                </div>
-                <div class="actions ">
-                    <button>remove student</button>
-                </div>
-            </li> -->
+            <div class="top-container"><button id="btn-add-student"><i class="fas fa-user-plus"></i> add student</button></div>
             </ul>
+            <div class="form-container  hideorshow" id="formcontainer">
+            <form class="form" id="form-data"><div class="top-form"><h2>add student data here</h2><button id="btnclose"><i class="fas fa-times-circle"></i></button></div>
+                <input type="text" class="txts" placeholder="enter stundent name " id="name">
+                <input type="text" class="txts" placeholder="enter stundent Email " id="email">
+                <input type="text" class="txts" placeholder="enter stundent phone " id="phone">
+                <input type="text" class="txts" placeholder="enter stundent Adress " id="adress">
+                <input type="text" class="txts" placeholder="enter stundent age " id="age">
+                <input type="text" class="txts" placeholder="enter stundent sex " id="sex">
+                <div class="btn-container"><button class="btn" id="submitdata">submit data</button></div>
+            </form>
+            </div>
+            <div class="form-container hideorshow" id="formcontainerUpdate">
+                <form class="form" id="form-data"><div class="top-form"><h2>update  data here</h2><button id="btnUpdateclose"><i class="fas fa-times-circle"></i></button></div>
+                    <input type="text" class="txts" placeholder="enter stundent name " id="nameupadte">
+                    <input type="text" class="txts" placeholder="enter stundent Email " id="emailupdate">
+                    <input type="text" class="txts" placeholder="enter stundent phone " id="phoneupdate">
+                    <input type="text" class="txts" placeholder="enter stundent Adress " id="adressupdate">
+                    <input type="text" class="txts" placeholder="enter stundent age " id="ageupdate">
+                    <input type="text" class="txts" placeholder="enter stundent sex " id="sexupdate">
+                    <div class="btn-container"><button class="btn" id="submitdataupdate">Update data</button></div>
+                </form>
+                </div>
     </div>
     <script src="main.js"></script>
 </body>

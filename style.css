@@ -1,6 +1,7 @@
 *{
     padding: 0;
     margin: 0;
+    
 }
 .main{
     display:flex;
@@ -16,27 +17,135 @@ h1{
 
 }
 .student-list{
-    border:4px solid hsl(0, 53%, 70%);
+    border:1px solid hsl(0, 53%, 70%);
     border-radius: 10px;
     padding: 1rem;
     list-style: none;
     justify-content: space-between;
      width: 40%;
+
 }
 .listitem{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+.actions {
+  display: flex;  
+}
 .actions button:hover {
-    /* background-color: rgb(197, 21, 21); */
-    color: rgb(166, 42, 59);
+    background-color: rgb(23, 176, 176);
+    color:red;
+    
 }
 .actions button{
+    padding: 1rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    margin-right:1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 3px hsla(183, 75%, 61%, 0.898);
+}
+.top-container{
+    display: flex;
+    justify-content: right;
+    
+}
+.top-container button{
     border-radius:  5px;
     border:0;
     width:150px;
     padding: 1rem 1rem;
-    color: hsl(160, 78%, 44%);
-    box-shadow: 2px 2px hsla(0, 0%, 0%, 0.624);
+    background-color: rgb(1, 80, 69);
+    color:#fff;
+    box-shadow: 0 0 3px rgb(179, 179, 0.80);
+}
+.top-container button:hover{
+background-color: hsla(210, 76%, 53%, 0.728);
+color: rgb(180, 80%, 18%);
+}
+.form-container{
+    background-color: rgb(46, 45, 45,0.363);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    box-shadow: 0 0 10px 10px rgba(156, 156,156,0.815);
+    border:1px solid rgb(173, 171,171);
+    background-color: #fff;
+    z-index: 10000;
+}
+.form h2{
+    margin-bottom: 1rem;
+   font-size: 32px;
+   font-family: 'Times New Roman', Times;
+}
+.txts{
+    height: 35px;
+    width: 350px;
+    margin-bottom: .8rem;
+    padding-left: 10px;
+    border-radius: 5px;
+    border:1px solid rgb(230, 230, 230);
+    background-color: hsla(161, 47%, 18%, 0.082);
+    color:black;
+}
+
+.txts:focus {
+    outline: none;
+}
+.btn{
+    margin-top: 2rem;
+    background-color: rgb(1,133,115);
+    border-radius:15px;
+    width: 150px;
+    border:0;
+    padding: 1rem 1rem;
+    background-color: rgb(1, 80, 69);
+    color:#fff;
+    box-shadow: 0 0 3px rgb(179, 179,179, 0.527);
+}
+.btn-container{
+    display: flex;
+    justify-content:right;
+}
+.btn:hover{
+    background-color: rgb(156, 240, 212);
+    color:rgb(231, 219, 219);
+}
+.top-form{
+    display: flex;
+    justify-content: space-between;
+}
+.top-form h2{
+    margin-bottom: 1rem;
+    color:rgb(83,83,83);
+}
+.top-form button{
+    background-color: #fff;
+    width: 30px;
+    height: 300p;
+    border:none;
+    color:rgb(168,168,168);
+}
+.top-form button:ho{
+    background-color: #fff;
+    width: 30px;
+    height: 300p;
+    border:none;
+    color:rgb(168,168,168);
+}
+.hideorshow{
+    display: none;
+}
+.fas fa-times-circle{
+    background-color: blue;
 }
